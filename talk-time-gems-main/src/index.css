@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 230 25% 7%;
+    --foreground: 220 20% 92%;
+
+    --card: 230 20% 11%;
+    --card-foreground: 220 20% 92%;
+
+    --popover: 230 20% 11%;
+    --popover-foreground: 220 20% 92%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 230 15% 18%;
+    --secondary-foreground: 220 20% 92%;
+
+    --muted: 230 15% 15%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 15% 20%;
+    --input: 230 15% 20%;
+    --ring: 262 83% 58%;
+
+    --radius: 0.75rem;
+
+    --talk-glow: 262 83% 58%;
+    --talk-active: 150 80% 50%;
+    --talk-ripple: 262 83% 68%;
+
+    --sidebar-background: 230 20% 9%;
+    --sidebar-foreground: 220 20% 92%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 230 15% 15%;
+    --sidebar-accent-foreground: 220 20% 92%;
+    --sidebar-border: 230 15% 20%;
+    --sidebar-ring: 262 83% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-digital {
+    font-family: 'Orbitron', monospace;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--talk-glow) / 0.3),
+                0 0 40px hsl(var(--talk-glow) / 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px hsl(var(--talk-glow) / 0.5),
+                0 0 60px hsl(var(--talk-glow) / 0.2);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes sound-wave {
+  0%, 100% {
+    height: 8px;
+  }
+  50% {
+    height: 28px;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-ripple {
+  animation: ripple 1.5s ease-out infinite;
+}
+
+.animate-breathe {
+  animation: breathe 3s ease-in-out infinite;
+}
