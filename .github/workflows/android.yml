@@ -1,18 +1,12 @@
 name: Android CI
-
 on:
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
       - name: set up JDK 17
         uses: actions/setup-java@v4
         with:
@@ -20,13 +14,13 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      - name: Grant execute permission for gradlew
+      - name: Grant execute permission
         run: chmod +x talk-time-gems-main/android/gradlew
 
       - name: Build with Gradle
         run: |
           cd talk-time-gems-main/android
-          ./gradlew assembleDebug
+          ./gradlew assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
